@@ -42,10 +42,6 @@ func (c *Calculator) Add(num1 interface{}, num2 interface{}) (float64, error) {
 	var numFloat1, numFloat2 float64
 	var err error
 
-	if num2 == nil {
-		num2 = 0
-	}
-
 	if numFloat1, err = getFloat64(num1); err != nil {
 		return 0.0, err
 	}
@@ -77,10 +73,6 @@ func (c *Calculator) Subtract(num1 interface{}, num2 interface{}) (float64, erro
 	var numFloat1, numFloat2 float64
 	var err error
 
-	if num2 == nil {
-		num2 = 0
-	}
-
 	if numFloat1, err = getFloat64(num1); err != nil {
 		return 0.0, err
 	}
@@ -102,7 +94,7 @@ func (c *Calculator) SubtractFromLastCalculation(num interface{}) (float64, erro
 		return 0.0, err
 	}
 
-	result := c.lastCalculation - numFloat1 
+	result := c.lastCalculation - numFloat1
 	c.lastCalculation = result
 	return result, nil
 }

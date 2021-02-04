@@ -1,5 +1,5 @@
 # golang-unit-tests
-For CS-496 Deploying Working Software 
+CS-496 Deploying Working Software Assignment #1 
 
 
 ### To Run Tests

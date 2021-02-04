@@ -1,7 +1,5 @@
 package calculator
 
-import "errors"
-
 type Calculator struct {
 	lastCalculation float64
 }
@@ -15,7 +13,7 @@ func New(initCalcs ...float64) (*Calculator, error) {
 		return &Calculator{lastCalculation: initCalcs[0]}, nil
 	}
 
-	return nil, errors.New("Invalid length passed in for initialCalculation")
+	return nil, &InitError{}
 
 }
 
@@ -33,7 +31,7 @@ func getFloat64(number interface{}) (float64, error) {
 		return value, nil
 
 	default:
-		return 0.0, errors.New("Invalid data type passed through.. expecting int or float")
+		return 0.0, &InputError{}
 	}
 }
 

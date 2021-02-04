@@ -24,6 +24,7 @@ func TestCalculatorInitFail(t *testing.T) {
 	testCalculator, err := New(1.0, 23.3)
 	assert.Error(t, err)
 	assert.Nil(t, testCalculator)
+	assert.Equal(t, err.Error(), "variadic float64 values in constructor can only be either length one or zero")
 }
 func TestCalculatorAddPassPositiveInts(t *testing.T) {
 	testCalculator, err := New()
@@ -68,7 +69,7 @@ func TestCalculatorAddFailure(t *testing.T) {
 
 	assert.Equal(t, sum1, 0.0)
 	assert.Error(t, err)
-
+	assert.Equal(t, err.Error(), "Invalid data type passed into calculator.. expecting only type of int or float")
 	sum2, err := testCalculator.Add("FAILURE", 64.5)
 
 	assert.Equal(t, sum2, 0.0)
